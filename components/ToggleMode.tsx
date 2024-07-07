@@ -17,7 +17,7 @@ const ToggleMode = () => {
     return <Button variant="outline" size="icon" disabled={true}></Button>;
   }
 
-  const dark = theme === "dark";
+  let dark = theme === "dark";
 
   return (
     <>

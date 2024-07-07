@@ -17,12 +17,12 @@ const TicketPriority = ({ priority }: Props) => {
       <Flame className="text-red-500" />
       <Flame
         className={`${
-          priorityMap[priority].level > 1 ? "text-red-500" : "text-gray-700"
+          priorityMap[priority].level > 1 ? "text-red-500" : "text-muted"
         }`}
       />
       <Flame
         className={`${
-          priorityMap[priority].level > 2 ? "text-red-500" : "text-gray-700"
+          priorityMap[priority].level > 2 ? "text-red-500" : "text-muted"
         }`}
       />
     </>
