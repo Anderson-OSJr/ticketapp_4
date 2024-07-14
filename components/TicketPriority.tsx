@@ -13,7 +13,7 @@ const priorityMap: Record<Priority, { label: string; level: 1 | 2 | 3 }> = {
 
 const TicketPriority = ({ priority }: Props) => {
   return (
-    <>
+    <div className="flex justify-between">
       <Flame className="text-red-500" />
       <Flame
         className={`${
@@ -25,7 +25,7 @@ const TicketPriority = ({ priority }: Props) => {
           priorityMap[priority].level > 2 ? "text-red-500" : "text-muted"
         }`}
       />
-    </>
+    </div>
   );
 };
 
