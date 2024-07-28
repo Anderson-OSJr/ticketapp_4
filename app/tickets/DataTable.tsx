@@ -10,12 +10,15 @@ import {
 } from "@/components/ui/table";
 import { Ticket } from "@prisma/client";
 import Link from "next/link";
+import { ArrowDown } from "lucide-react";
+import { SearchParams } from "./page";
 
 interface Props {
   tickets: Ticket[];
+  searchParms: SearchParams;
 }
 
-const DataTable = ({ tickets }: Props) => {
+const DataTable = ({ tickets, searchParms }: Props) => {
   /* console.log("Era para ser a rela do tickets"); */
   return (
     <div className="w-full mt-5">
@@ -24,16 +27,48 @@ const DataTable = ({ tickets }: Props) => {
           <TableHeader>
             <TableRow>
               <TableHead>
-                <div className="flex justify-center">Title</div>
+                <div className="flex justify-center">
+                  <Link href={{ query: { ...searchParms, orderBy: "title" } }}>
+                    Title
+                  </Link>
+                  {"title" === searchParms.orderBy && (
+                    <ArrowDown className="inline p-1" />
+                  )}
+                </div>
               </TableHead>
               <TableHead>
-                <div className="flex justify-center">Status</div>
+                <div className="flex justify-center">
+                  <Link href={{ query: { ...searchParms, orderBy: "status" } }}>
+                    Status
+                  </Link>
+                  {"status" === searchParms.orderBy && (
+                    <ArrowDown className="inline p-1" />
+                  )}
+                </div>
               </TableHead>
               <TableHead>
-                <div className="flex justify-center">Priority</div>
+                <div className="flex justify-center">
+                  <Link
+                    href={{ query: { ...searchParms, orderBy: "priority" } }}
+                  >
+                    Priority
+                  </Link>
+                  {"priority" === searchParms.orderBy && (
+                    <ArrowDown className="inline p-1" />
+                  )}
+                </div>
               </TableHead>
               <TableHead>
-                <div className="flex justify-center">Created At</div>
+                <div className="flex justify-center">
+                  <Link
+                    href={{ query: { ...searchParms, orderBy: "createdAt" } }}
+                  >
+                    Created At
+                  </Link>
+                  {"createdAt" === searchParms.orderBy && (
+                    <ArrowDown className="inline p-1" />
+                  )}
+                </div>
               </TableHead>
             </TableRow>
           </TableHeader>
