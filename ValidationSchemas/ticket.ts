@@ -6,3 +6,14 @@ export const ticketSchemaZodValidator = z.object({
   status: z.string().min(1, "Status").max(10).optional(),
   priority: z.string().min(1, "Priority").max(10).optional(),
 });
+
+export const ticketPatchSchema = z.object({
+  title: z.string().min(1, "Title is required.").max(255).optional(),
+  description: z
+    .string()
+    .min(1, "Description is required.")
+    .max(2000)
+    .optional(),
+  status: z.string().min(1, "Status").max(10).optional(),
+  priority: z.string().min(1, "Priority").max(10).optional(),
+});

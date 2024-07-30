@@ -9,6 +9,8 @@ const ViewTicket = async ({ params }: Props) => {
     where: { id: parseInt(params.id) },
   });
 
+  const users = await prisma.user.findMany();
+
   if (!ticketById) {
     return (
       <>
@@ -20,7 +22,7 @@ const ViewTicket = async ({ params }: Props) => {
   return (
     <>
       <div>
-        <TicketDetail ticket={ticketById} />
+        <TicketDetail ticket={ticketById} users={users} />
       </div>
     </>
   );
